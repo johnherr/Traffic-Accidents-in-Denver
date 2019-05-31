@@ -69,7 +69,7 @@ I then looked at these intersections to see if the rate of accidents was relativ
 ![](images/top_accident_locations_swarm_plot.png)
 
 
-# Mapping Accidents
+## Mapping Accidents
 The above insights are interesting, but one thing I really wanted to be able to do was plot data interactively on a map.  I first tried doing this using `gmap`, the Google Maps API for python, after crashing my browser numerous times when loading the generated html files I transitioned to using `folium ` which allowed me to create the interactive map linked below.
 
 Please note the interactive layers that can be turned on and off:
