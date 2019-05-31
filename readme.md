@@ -32,7 +32,7 @@ To explore this seasonality component further, I decided to look at the monthly 
 While the seasonality aspect was surprising, I expected to see a positive correlation between commuting times and the number of accidents. The following 'kde' joint-plot confirms this expectation and reveals that weekdays are particularly bad for traffic accidents between 7-8am and  3-5pm. On the weekends there is an uptick in accidents during the nighttime hours. 
 ![](images/when_accidents_occur_joint_plot.png)
 
-## Top Contributing factors
+## Top Contributing Factors
 Accident reports sometimes list a human contributing factor. Presumably, this field on the accident report is entered at the reporting Officer's discretion.  Further, it appears that this field is incomplete (e.g., it is likely missing significant factors that may have caused some accidents).  Since police officers are only working from a limited knowledge this is expected. Nevertheless,  this information still reveals some interesting data.
 
 
@@ -43,7 +43,7 @@ Looking at these human contributing factors in a little more detail, I was inter
 ![](images/human_contributing_factors_violin_plot.png)
 
 
-## Where to the most Accidents Occur?
+## Where do the most Accidents Occur?
 Grouping by the "Address" field, I was able to identify the most common accident locations.  As can be seen below, it appears that the most common places for accidents to occur are onramps or off ramps to the I-25 and I-70 freeways.
 
 | LOCACTION                        | Count|
@@ -82,10 +82,11 @@ Please note the interactive layers that can be turned on and off:
 
 [Link to interactive map](https://s3-us-west-1.amazonaws.com/folium.map/folium_heat.html)
 
-In the event you cannot access the html file locate in an S3 bucket, the html file is also located in the `images/` folder of this repo.  Here's a quick gif showcasing the map.
+In the event you cannot access the html file locate in my S3 bucket, the html file is also located in the `images/` folder of this repo and can be downloaded and run from your local machine. 
 ![](images/heat_map.gif)
 
-### A few more plots
+
+### A few more less interesting plots...
 ![](images/road_location_bar_plot.png)
 
 ![](images/light_condition_bar_plot.png)
