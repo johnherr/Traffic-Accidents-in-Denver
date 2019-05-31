@@ -3,14 +3,9 @@ Exploring Accident Data in Denver
 
 ![](images/traffic.jpg)
 
-**JOHN HERR | Galvanize DSI, Capstone 1 | Spring 2019** 
+**JOHN HERR | Galvanize Data Science Imersive | Spring 2019** 
 
-# Contents
-- [Background](#Background)
-- [Question](#Question)
-- [Data](#Data)
-- [Exploratory Data Analysis](#Exploratory Data Analysis)
-- [Mapping Accidents](#Mapping Accidents)
+*Capstone 1: Exploratory Data Analysis*
 
 # Background
 Globally, road traffic injuries are the leading cause of death for persons aged 5-29 years, according to the [World Health Organization](https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries). While improvements in automobile safety have significantly reduced the dangers of driving, more than 32,000 people are killed and 2 million are injured each year from motor vehicle crashes in the US alone each year according to the [CDC](https://www.cdc.gov/vitalsigns/motor-vehicle-safety/index.html).
@@ -28,6 +23,7 @@ The dataset records over 156,000 incidents. Most recorded incidents include info
 
 
 # Exploratory Data Analysis
+
 ## When do Accidents Occur
 After successfully importing and cleaning the dataset one, my first goals was to determine whether accidents are becoming more common in Denver.  To answer this, I plotted the quarterly total number of accidents from the beginning of 2013 to the end of 2018. There appears to be an increase in the number of accidents year over year, which should be expected, in a city which has seen significant population growth.  What was surprising, was that there appeared to be a significant seasonality component to the number of accidents, with Q1 of each year marking a significant decrease in the overall rate of accidents each year.
 ![](images/accidents_over_time_Q.png)
@@ -70,11 +66,13 @@ Grouping by the "Address" field, I was able to identify the most common accident
 I then looked at these intersections to see if the rate of accidents was relatively constant. As can be seen in the graph below, which only considers 2017 and 2018, there appears to be days or weeks for each of these, particularly bad intersections.  While some of this may be random, it would be interesting to see if these periods were correlated with, e.g., bad weather or construction. 
 
 
-![](images/Time_series_of_top_accident_locations_swarm_plot.png)
+![](images/top_accident_locations_swarm_plot.png)
 
+
+![](images/heat_map.gif)
 # Mapping Accidents
 
-[Accidents involving bikes](maps/bikes.html)
+[Accidents involving bikes](https://s3-us-west-1.amazonaws.com/folium.map/folium_heat.html)
 
 # A few more plots
 ![](images/road_location_bar_plot.png)
