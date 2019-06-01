@@ -11,7 +11,7 @@ Exploring Accident Data in Denver
 According to the [World Health Organization](https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries), road traffic injuries are the leading cause of death for persons aged 5-29 years. While improvements in automobile safety have significantly reduced the dangers of driving, more than 32,000 people are killed and, 2 million are injured each year from motor vehicle crashes in the US alone each year according to the [CDC](https://www.cdc.gov/vitalsigns/motor-vehicle-safety/index.html).
 
 As a resident in Denver, I was curious about how safe the roads are that I used to commute by bike each day.  I was curious to see if accidents are becoming more frequent over time (possibly due to the population boom), where accidents most frequently occur, and what factors may contribute to or are at least correlated accidents in this city.
-
+ 
 
 # Data
 The Denver Open Data Catalog has [a dataset](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-traffic-accidents)  that includes motor vehicle crashes reported to the Denver Police Department, that occurred within the City and County of Denver and during the previous five calendar years and resulted in at least one thousand dollars in damage, an injury, a fatality, or a drug/alcohol involvement. 
@@ -24,12 +24,15 @@ The dataset records more than 156,000 traffic incidents. Most of the recorded in
 
 ## When do Accidents Occur
 After importing and cleaning my data, one of my first goals was to determine whether accidents are becoming more common in Denver.  To answer this, I plotted the quarterly total number of accidents from the beginning of 2013 to the end of 2018. There appears to be an increase in the number of accidents year over year, which should be expected, in a city which has seen significant population growth.  What was surprising, was that there appeared to be a significant seasonality component to the number of accidents, with Q1 of each year marking a significant decrease in the overall rate of accidents each year.
+
 ![](images/accidents_over_time_Q.png)
 
 To explore this seasonality component further, I decided to look at the monthly averages over the past five years.  Since some months are longer than others, and some years are leap years, I normalized the data to determine the average number of recorded accidents per day in each month of the year. The accident rate appears to increase from March through October and then decrease from October through March of the following year. How interesting!
+
 ![](images/accidents_per_day.png)
 
 While the seasonality aspect was surprising, I expected to see a positive correlation between commuting times and the number of accidents. The following 'kde' joint-plot confirms this expectation and reveals that weekdays are particularly bad for traffic accidents between 7-8am and  3-5pm. On the weekends there is an uptick in accidents during the nighttime hours. 
+
 ![](images/when_accidents_occur_joint_plot.png)
 
 ## Top Contributing Factors
@@ -37,9 +40,11 @@ Accident reports sometimes list a human contributing factor. Presumably, this fi
 
 
 For example, it is interesting that "driver inexperience" is so frequently provided as a contributing factor. I had also expected cell-phone usage to be a more common contributing factor, but it is possible that many accidents associated with cell-phone usage are grouped under "Distracted-other." 
+
 ![](images/human_contributing_factors_bar_plot.png)
 
 Looking at these human contributing factors in a little more detail, I was interested in the correlation between the time of day and when these contributing factors are listed on accident reports. As might be expected, accidents with "DUI," "Driver fatigue," "Asleep at the wheel," "Driver emotionally upset" listed as contributing factors frequently occur during the nighttime hours.
+
 ![](images/human_contributing_factors_violin_plot.png)
 
 
@@ -86,9 +91,3 @@ In the event you cannot access the html file locate in my S3 bucket, the html fi
 ![](images/heat_map.gif)
 
 
-### A few more less interesting plots...
-![](images/road_location_bar_plot.png)
-
-![](images/light_condition_bar_plot.png)
-
-![](images/road_condition_bar_plot.png)
