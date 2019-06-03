@@ -27,7 +27,7 @@ def plot_over_time(df, time_col, ax, title, interval):
             ax - axis with plot
     '''
     ax.plot(df.groupby(pd.Grouper(key=time_col, freq=interval))
-            .size(), '*-', linewidth=2)
+            .size(), '*-', color = 'firebrick', linewidth=2)
     ax.set_title(title)
     ax.set_ylabel('# of Collisions')
     name=filename(title)
@@ -51,7 +51,7 @@ def plot_months(df, ax, title = 'Accidents per Day'):
     per_day = df.groupby(['month'])['weight'].sum()
     per_day
 
-    sns.barplot(x = per_day.index, y = per_day, ax= ax)
+    sns.barplot(x = per_day.index, y = per_day, ax= ax, color = "firebrick")
     ax.set_ylim(65, 90)
     ax.set_title('Accidents by Month (Data averaged over 5 years)')
     ax.set_ylabel(title)
@@ -126,17 +126,23 @@ def plot_human_factors_and_time(df,ax, col = 'TU1_DRIVER_HUMANCONTRIBFACTOR', va
 
 
 def joint_plot(df, x = 'w_day' , y = 'hour', title = 'joint_plot', ylabel = 'Hour', xlabel = 'Weekday'):
-#     time_range_filter = df['DATE'] > '2018-01-01'
-#     df2018 = df[time_range_filter].sample(100)
+    '''
+        Prints a seaborn jointplot time of day vs day of week
+        
+        ARGS:
+            df -> pandas df
+            x -> default is the weekday
+            y -> default is the hour
+
+        Return:
+            ax - axis with plot
+    '''
     ax = sns.set(style="ticks")
     x = df[x]
     y = df[y]
-    a = sns.jointplot(x, y, kind="kde", color="g", xlim=(-.5,6.5), ylim=(0,24))
-    # JointGrid has a convenience function
+    a = sns.jointplot(x, y, kind="kde", color="r", xlim=(-.5,6.5), ylim=(0,24))
     a.set_axis_labels('Day of Week (Sunday-Saturday)', 'Hour of Day', fontsize=16)
-    # labels appear outside of plot area, so auto-adjust
     plt.tight_layout()
-    
     
     name=filename(title)
     save_location='images/'+name + '_joint_plot.png'
@@ -146,10 +152,12 @@ def joint_plot(df, x = 'w_day' , y = 'hour', title = 'joint_plot', ylabel = 'Hou
 def swarm_plot(df, start ='2017-01-01', num = 7, title = 'Top Accident Locations'):
     """
     Creates a time-series swarm plot for locations with most accidents
-    ARGS
+    
+    ARGS:
         df- pd.dataFrame
         start - startdate (e.g., '2017-01-01')
         num = number of locations to plot"""
+    
     time_range_filter = df['DATE'] > '2017-01-01'
     df2018 = df[time_range_filter]
     top_locations_list = list(df2018.groupby(['INCIDENT_ADDRESS']).size().sort_values(ascending = False)[:num].index)
@@ -170,13 +178,13 @@ def swarm_plot(df, start ='2017-01-01', num = 7, title = 'Top Accident Locations
 if __name__ == '__main__':
     df = pd.read_pickle('data/pickled_df')
     
-#     #Plot accidents over time
-#     fig, ax = plt.subplots(1, 1, figsize=(10, 5))
-#     plot_over_time(df, 'DATE', ax, 'ACCIDENTS OVER TIME', 'Q')
+    #Plot accidents over time
+    fig, ax = plt.subplots(1, 1, figsize=(10, 5))
+    plot_over_time(df, 'DATE', ax, 'ACCIDENTS OVER TIME', 'Q')
     
-#     #Plot seasonal variation
-#     fig4, ax4 = plt.subplots(1, 1, figsize=(10, 5))
-#     plot_months(df, ax4)
+    #Plot seasonal variation
+    fig4, ax4 = plt.subplots(1, 1, figsize=(10, 5))
+    plot_months(df, ax4)
     
 #     #Take a look at Human contributing factors
 #     fig2, ax2 = plt.subplots(1, 1, figsize=(10, 5))
@@ -200,9 +208,8 @@ if __name__ == '__main__':
 #     fig5, ax5 = plt.subplots(1, 1, figsize=(10, 5))
 #     hist_categorical_factors(df, ax5, col = 'TU1_DRIVER_ACTION',vals=['UNDER INVESTIGATION'], title = 'Driver Action')
     
-#     #Take a look at time vs weekday
-#     joint_plot(df, title = 'When Accidents occur', xlabel='Weekday', ylabel='Hour of day')
-                             
-                 
-    #SwarmPlot
-    swarm_plot(df)
+    #Take a look at time vs weekday
+    joint_plot(df, title = 'When Accidents occur', xlabel='Weekday', ylabel='Hour of day')
+                              
+#     #SwarmPlot
+#     swarm_plot(df)
