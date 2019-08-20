@@ -1,11 +1,3 @@
-Exploring Accident Data in Denver
-=====
-
-![](images/banner.png)
-
-**JOHN HERR | Galvanize Data Science Imersive | Spring 2019** 
-
-*Capstone 1 - Exploratory Data Analysis*
 
 # Background & Motivation
 According to the [World Health Organization](https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries), road traffic injuries are the leading cause of death for persons aged 5-29 years. While improvements in automobile safety have significantly reduced the dangers of driving, more than 32,000 people are killed and, 2 million are injured each year from motor vehicle crashes in the US alone each year according to the [CDC](https://www.cdc.gov/vitalsigns/motor-vehicle-safety/index.html).
@@ -17,6 +9,8 @@ As a resident in Denver, I was curious about how safe the roads are that I used 
 The Denver Open Data Catalog has [a dataset](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-traffic-accidents)  that includes motor vehicle crashes reported to the Denver Police Department that occurred within the City and County of Denver and during the previous five calendar years and resulted in at least one thousand dollars in damage, an injury, a fatality, or a drug/alcohol involvement. 
 
 The dataset records more than 156,000 traffic incidents. Most of the recorded incidents include information such as the geographic location of the accident, road conditions, human factors that may have contributed to the accident, and any injuries or fatalities that  resulted from the accident. 
+
+![](images/banner.png)
 
 
 # Exploratory Data Analysis
