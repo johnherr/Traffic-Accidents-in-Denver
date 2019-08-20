@@ -1,14 +1,15 @@
+[![](images/button.png)](https://johnherr.github.io)
 
 # Background & Motivation
 According to the [World Health Organization](https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries), road traffic injuries are the leading cause of death for persons aged 5-29 years. While improvements in automobile safety have significantly reduced the dangers of driving, more than 32,000 people are killed and, 2 million are injured each year from motor vehicle crashes in the US alone each year according to the [CDC](https://www.cdc.gov/vitalsigns/motor-vehicle-safety/index.html).
 
 As a resident in Denver, I was curious about how safe the roads are that I used to commute by bike each day.  I was curious to see if accidents are becoming more frequent over time (possibly due to the population growth in this city), where accidents most frequently occur, and what factors may contribute to or are at least correlated with accidents in this city.
- 
+
 
 # Data
-The Denver Open Data Catalog has [a dataset](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-traffic-accidents)  that includes motor vehicle crashes reported to the Denver Police Department that occurred within the City and County of Denver and during the previous five calendar years and resulted in at least one thousand dollars in damage, an injury, a fatality, or a drug/alcohol involvement. 
+The Denver Open Data Catalog has [a dataset](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-traffic-accidents)  that includes motor vehicle crashes reported to the Denver Police Department that occurred within the City and County of Denver and during the previous five calendar years and resulted in at least one thousand dollars in damage, an injury, a fatality, or a drug/alcohol involvement.
 
-The dataset records more than 156,000 traffic incidents. Most of the recorded incidents include information such as the geographic location of the accident, road conditions, human factors that may have contributed to the accident, and any injuries or fatalities that  resulted from the accident. 
+The dataset records more than 156,000 traffic incidents. Most of the recorded incidents include information such as the geographic location of the accident, road conditions, human factors that may have contributed to the accident, and any injuries or fatalities that  resulted from the accident.
 
 ![](images/banner.png)
 
@@ -20,11 +21,11 @@ After importing and cleaning my data using `pandas`, one of my first goals was t
 
 ![](images/accidents_over_time_Q.png)
 
-To explore this seasonality component further, I decided to look at the monthly averages over the past five years.  Since some months are longer than others, and some years are leap years, I normalized the data to determine the average number of recorded accidents per day in each month of the year. The accident rate appears to increase from March through October and then decrease from October through March of the following year. If I had to guess I would have said that accidents would be most frequent between January and March when snow and ice may contribute to accidents, but the data clearly shows that this is not the case. 
+To explore this seasonality component further, I decided to look at the monthly averages over the past five years.  Since some months are longer than others, and some years are leap years, I normalized the data to determine the average number of recorded accidents per day in each month of the year. The accident rate appears to increase from March through October and then decrease from October through March of the following year. If I had to guess I would have said that accidents would be most frequent between January and March when snow and ice may contribute to accidents, but the data clearly shows that this is not the case.
 
 ![](images/accidents_per_day.png)
 
-While the seasonality aspect was surprising, I expected to see a positive correlation between commuting times and the number of accidents. The following kernel density estimation (KDE) joint-plot confirms this expectation and reveals that weekdays are particularly bad for traffic accidents between 7-8am and  3-5pm. On the weekends there is also an uptick in the number of accidents that occur during the nighttime hours. 
+While the seasonality aspect was surprising, I expected to see a positive correlation between commuting times and the number of accidents. The following kernel density estimation (KDE) joint-plot confirms this expectation and reveals that weekdays are particularly bad for traffic accidents between 7-8am and  3-5pm. On the weekends there is also an uptick in the number of accidents that occur during the nighttime hours.
 
 ![](images/when_accidents_occur_joint_plot.png)
 
@@ -61,7 +62,7 @@ Grouping by the "Address" field, I was able to identify the most common accident
 | 8400 PENA BLVD                     | 325 |
 | I70 HWYEB / N CENTRAL PARK BLVD    | 304 |
 
-The following plot considers the top 7 locations and plots each accident at the location as a dot over a two year period. There appear to be days, or in some cases weeks, in which these locations may have significantly more or fewer accidents. In some cases, these time periods seem to align between locations, which might be indicative of a contributing factor such as bad weather. 
+The following plot considers the top 7 locations and plots each accident at the location as a dot over a two year period. There appear to be days, or in some cases weeks, in which these locations may have significantly more or fewer accidents. In some cases, these time periods seem to align between locations, which might be indicative of a contributing factor such as bad weather.
 
 ![](images/top_accident_locations_swarm_plot.png)
 
@@ -78,7 +79,5 @@ Please note the interactive layers which can be toggled on and off:
 
 [Link to interactive map](https://s3-us-west-1.amazonaws.com/folium.map/folium_heat.html)
 
-The html file is also located in the `images/` folder of this repo and can be downloaded and run from your local machine. 
+The html file is also located in the `images/` folder of this repo and can be downloaded and run from your local machine.
 ![](images/heat_map.gif)
-
-
